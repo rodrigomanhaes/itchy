@@ -16,6 +16,8 @@ public class FakeApp {
 	
 	private HttpServer server;
 	
+	public final static String EXAMPLE_URL = "http://localhost:7070/";
+	
 	public void up() {
 		HttpHandler handler = createHandler(htmlContent());
 		server = startServer(handler);
