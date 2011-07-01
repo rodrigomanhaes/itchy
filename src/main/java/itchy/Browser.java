@@ -1,5 +1,9 @@
 package itchy;
 
+import java.util.LinkedList;
+import java.util.List;
+
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.remote.RemoteWebDriver;
 
@@ -20,6 +24,13 @@ public class Browser {
 	
 	public String html() {
 		return driver.getPageSource();
+	}
+	
+	public List<Element> findByCSS(String selector) {
+		List<Element> elements = new LinkedList<Element>();
+		for (WebElement element: driver.findElementsByCssSelector(selector))
+			elements.add(new Element(element));
+		return elements;
 	}
 	
 	public void quit() {
