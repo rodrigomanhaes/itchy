@@ -18,6 +18,10 @@ public class Browser {
 		return driver.getTitle();
 	}
 	
+	public String html() {
+		return driver.getPageSource();
+	}
+	
 	public void quit() {
 		driver.quit();
 	}
