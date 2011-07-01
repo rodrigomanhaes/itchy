@@ -12,21 +12,23 @@ public class BrowserTest {
 	
 	@Test
 	public void visitsAnUrl() {
-		Browser browser = new Browser();
 		browser.visit(FakeApp.EXAMPLE_URL);
 		assertThat(browser.title(), equalTo("Example Title"));
 	}
 	
 	private static FakeApp app;
+	private static Browser browser;
 	
 	@BeforeClass
 	public static void serverUp() {
 		app = new FakeApp();
 		app.up();
+		browser = new Browser();		
 	}
 	
 	@AfterClass
 	public static void serverDown() {
+		browser.quit();
 		app.down();
 	}
 }

@@ -1,13 +1,13 @@
 package itchy;
 
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.htmlunit.HtmlUnitDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.remote.RemoteWebDriver;
 
 public class Browser {
-	private WebDriver driver;
+	private RemoteWebDriver driver;
 	
 	public Browser() {
-		driver = new HtmlUnitDriver();
+		driver = new FirefoxDriver();
 	}
 
 	public void visit(String exampleUrl) {
@@ -16,5 +16,9 @@ public class Browser {
  
 	public String title() {
 		return driver.getTitle();
+	}
+	
+	public void quit() {
+		driver.quit();
 	}
 }
