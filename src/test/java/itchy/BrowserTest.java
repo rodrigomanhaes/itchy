@@ -1,9 +1,10 @@
 package itchy;
 
 import static org.hamcrest.MatcherAssert.assertThat;
-
-import static org.hamcrest.Matchers.*;
+import static org.hamcrest.Matchers.containsString;
+import static org.hamcrest.Matchers.equalTo;
 import itchy.testsupport.FakeApp;
+import static itchy.ItchySuite.browser;
 
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -26,22 +27,6 @@ public class BrowserTest {
 	public void retrievesPageHTML() {
 		assertThat(browser.html(), containsString("<title>Example Title</title>"));
 		assertThat(browser.html(), containsString("<h1>Example Header</h1>"));
-	}
-	
-	private static FakeApp app;
-	private static Browser browser;
-	
-	@BeforeClass
-	public static void serverUp() {
-		app = new FakeApp();
-		app.up();
-		browser = new Browser();		
-	}
-	
-	@AfterClass
-	public static void serverDown() {
-		browser.quit();
-		app.down();
 	}
 }
  
