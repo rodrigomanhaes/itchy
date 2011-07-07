@@ -1,7 +1,6 @@
 package itchy;
 
 import static org.hamcrest.MatcherAssert.assertThat;
-import static org.hamcrest.Matchers.containsString;
 import static org.hamcrest.Matchers.equalTo;
 import static org.hamcrest.Matchers.is;
 import itchy.testsupport.FakeApp;
@@ -25,12 +24,6 @@ public class FindTest {
 		assertThat(results.size(), is(1));
 		Element textField = results.get(0);
 		assertThat(textField.name(), equalTo("firstTextField"));
-	}
-	
-	@Test
-	public void retrievesPageHTML() {
-		assertThat(browser.html(), containsString("<title>Example Title</title>"));
-		assertThat(browser.html(), containsString("<h1>Example Header</h1>"));
 	}
 	
 	private static FakeApp app;
