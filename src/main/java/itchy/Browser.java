@@ -33,6 +33,13 @@ public class Browser {
 		return elements;
 	}
 	
+	public List<Element> findByXPath(String selector) { 
+		List<Element> elements = new LinkedList<Element>();
+		for (WebElement element: driver.findElementsByXPath(selector))
+			elements.add(new Element(element));
+		return elements;
+	}
+	
 	public void quit() {
 		driver.quit();
 	}

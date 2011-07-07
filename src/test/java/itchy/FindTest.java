@@ -24,4 +24,12 @@ public class FindTest {
 		Element textField = results.get(0);
 		assertThat(textField.name(), equalTo("firstTextField"));
 	}
+	
+	@Test
+	public void findsElementByXPath() {
+		List<Element> results = browser.findByXPath("//form[@id='firstForm']/input[@type='text']");
+		assertThat(results.size(), is(1));
+		Element textField = results.get(0);
+		assertThat(textField.name(), equalTo("firstTextField"));
+	}
 }
