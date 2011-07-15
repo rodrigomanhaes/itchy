@@ -32,4 +32,12 @@ public class FindTest {
 		Element textField = results.get(0);
 		assertThat(textField.name(), equalTo("firstTextField"));
 	}
+	
+	@Test
+	public void findsElementsByTag() {
+		List<Element> forms = browser.findByTag("form");
+		assertThat(forms.size(), is(2));
+		assertThat(forms.get(0).id(), equalTo("firstForm"));
+		assertThat(forms.get(1).id(), equalTo("secondForm"));
+	}
 }

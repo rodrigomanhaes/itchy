@@ -40,6 +40,13 @@ public class Browser {
 		return elements;
 	}
 	
+	public List<Element> findByTag(String tag) {
+		List<Element> elements = new LinkedList<Element>();
+		for (WebElement element: driver.findElementsByTagName(tag))
+			elements.add(new Element(element));
+		return elements;
+	}
+	
 	public void quit() {
 		driver.quit();
 	}

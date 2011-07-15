@@ -1,14 +1,12 @@
 package itchy;
 
+import static itchy.ItchySuite.browser;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.containsString;
 import static org.hamcrest.Matchers.equalTo;
 import itchy.testsupport.FakeApp;
-import static itchy.ItchySuite.browser;
 
-import org.junit.AfterClass;
 import org.junit.Before;
-import org.junit.BeforeClass;
 import org.junit.Test;
 
 public class BrowserTest {

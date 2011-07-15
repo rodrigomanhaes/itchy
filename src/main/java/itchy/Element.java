@@ -13,5 +13,8 @@ public class Element {
 	public String name() {
 		return this.webElement.getAttribute("name");
 	}
-
+	
+	public String id() {
+		return this.webElement.getAttribute("id");
+	}
 }
