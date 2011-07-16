@@ -66,7 +66,7 @@ public class FindTest {
 	
 	@Test
 	public void findLinksByText() {
-		List<Element> elements = browser.findLinksByText("Home");
+		List<Element> elements = browser.findLinksByText("Itchy Home");
 		assertThat(elements.size(), equalTo(1));
 		assertThat(elements.get(0).attr("href"), equalTo("https://github.com/rodrigomanhaes/itchy"));
 	}

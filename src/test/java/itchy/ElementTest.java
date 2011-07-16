@@ -32,4 +32,10 @@ public class ElementTest {
 		assertThat(link.attr("rel"), equalTo("our-site"));
 		assertThat(link.attr("tabindex"), equalTo("3"));
 	}
+	
+	@Test
+	public void retrievesItsContent() {
+		Element link = browser.findById("home");
+		assertThat(link.content(), equalTo("Itchy Home"));
+	}
 }
