@@ -10,7 +10,8 @@ import org.junit.runners.Suite;
 @RunWith(Suite.class)
 @Suite.SuiteClasses({
 	BrowserTest.class,
-	FindTest.class
+	FindTest.class,
+	ElementTest.class
 })
 public class ItchySuite {
 	private static FakeApp app;
