@@ -47,6 +47,10 @@ public class Browser {
 		return elements;
 	}
 	
+	public Element findById(String id) {
+		return new Element(driver.findElementById(id));
+	}
+	
 	public void quit() {
 		driver.quit();
 	}

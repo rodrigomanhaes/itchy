@@ -40,4 +40,11 @@ public class FindTest {
 		assertThat(forms.get(0).id(), equalTo("firstForm"));
 		assertThat(forms.get(1).id(), equalTo("secondForm"));
 	}
+	
+	@Test
+	public void findElementById() {
+		Element element = browser.findById("secondForm");
+		assertThat(element.id(), equalTo("secondForm"));
+		assertThat(element.name(), equalTo("second"));
+	}
 }
