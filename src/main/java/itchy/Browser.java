@@ -58,6 +58,13 @@ public class Browser {
 		return elements;
 	}
 	
+	public List<Element> findLinksByText(String text) {
+		List<Element> elements = new LinkedList<Element>();
+		for (WebElement element: driver.findElementsByLinkText(text))
+			elements.add(new Element(element));
+		return elements;
+	}
+	
 	public void quit() {
 		driver.quit();
 	}

@@ -64,4 +64,10 @@ public class FindTest {
 		assertThat(ids, hasItem("vb"));
 	}
 	
+	@Test
+	public void findLinksByText() {
+		List<Element> elements = browser.findLinksByText("Home");
+		assertThat(elements.size(), equalTo(1));
+		assertThat(elements.get(0).attr("href"), equalTo("https://github.com/rodrigomanhaes/itchy"));
+	}
 }
