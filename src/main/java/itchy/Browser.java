@@ -51,6 +51,13 @@ public class Browser {
 		return new Element(driver.findElementById(id));
 	}
 	
+	public List<Element> findByName(String name) {
+		List<Element> elements = new LinkedList<Element>();
+		for (WebElement element: driver.findElementsByName(name))
+			elements.add(new Element(element));
+		return elements;
+	}
+	
 	public void quit() {
 		driver.quit();
 	}

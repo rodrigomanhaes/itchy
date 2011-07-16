@@ -1,11 +1,14 @@
 package itchy;
 
 import static itchy.ItchySuite.browser;
+
 import static org.hamcrest.MatcherAssert.assertThat;
-import static org.hamcrest.Matchers.equalTo;
-import static org.hamcrest.Matchers.is;
+import static org.hamcrest.Matchers.*;
 import itchy.testsupport.FakeApp;
 
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.LinkedList;
 import java.util.List;
 
 import org.junit.Before;
@@ -47,4 +50,18 @@ public class FindTest {
 		assertThat(element.id(), equalTo("secondForm"));
 		assertThat(element.name(), equalTo("second"));
 	}
+	
+	@Test
+	public void findElementsByName() {
+		List<Element> elements = browser.findByName("sport");
+		assertThat(elements.size(), equalTo(4));
+		List<String> ids = new ArrayList<String>();
+		for (Element element: elements)
+			ids.add(element.id());
+		assertThat(ids, hasItem("fb"));
+		assertThat(ids, hasItem("hb"));
+		assertThat(ids, hasItem("bb"));
+		assertThat(ids, hasItem("vb"));
+	}
+	
 }
