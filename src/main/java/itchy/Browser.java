@@ -3,6 +3,7 @@ package itchy;
 import java.util.LinkedList;
 import java.util.List;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.remote.RemoteWebDriver;
@@ -61,6 +62,13 @@ public class Browser {
 	public List<Element> findLinksByText(String text) {
 		List<Element> elements = new LinkedList<Element>();
 		for (WebElement element: driver.findElementsByLinkText(text))
+			elements.add(new Element(element));
+		return elements;
+	}
+	
+	public List<Element> findLinksByHref(String href) {
+		List<Element> elements = new LinkedList<Element>();
+		for (WebElement element: driver.findElementsByXPath("//a[@href=\"" + href + "\"]"))
 			elements.add(new Element(element));
 		return elements;
 	}

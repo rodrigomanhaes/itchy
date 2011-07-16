@@ -70,4 +70,12 @@ public class FindTest {
 		assertThat(elements.size(), equalTo(1));
 		assertThat(elements.get(0).attr("href"), equalTo("https://github.com/rodrigomanhaes/itchy"));
 	}
+	
+	@Test
+	public void findLinksByHref() {
+		List<Element> elements = browser.findLinksByHref("https://github.com/rodrigomanhaes/itchy");
+		assertThat(elements.size(), equalTo(1));
+		assertThat(elements.get(0).content(), equalTo("Itchy Home"));
+	}
+
 }
