@@ -73,8 +73,8 @@ public class Browser {
 	}
 	
 	public boolean isTextPresent(String text) {
-		return html()
-				.replaceAll("<.+?>", "") // remove tags
+		return findByTag("body").get(0)
+				.content()
 				.replaceAll("\\s+", " ") // remove extra spaces
 				.contains(text);
 	}

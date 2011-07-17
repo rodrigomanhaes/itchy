@@ -32,5 +32,10 @@ public class BrowserTest {
 	public void checksPresenceOfText() {
 		assertThat(browser.isTextPresent("Um texto realmente interessante!"), is(true));
 	}
+	
+	@Test
+	public void ignoresTextWithinHeadWhenCheckingPresenceOfText() {
+		assertThat(browser.isTextPresent("Example Title"), is(false));
+	}
 }
  
