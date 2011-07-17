@@ -3,7 +3,6 @@ package itchy;
 import java.util.LinkedList;
 import java.util.List;
 
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.remote.RemoteWebDriver;
@@ -71,6 +70,13 @@ public class Browser {
 		for (WebElement element: driver.findElementsByXPath("//a[@href=\"" + href + "\"]"))
 			elements.add(new Element(element));
 		return elements;
+	}
+	
+	public boolean isTextPresent(String text) {
+		return html()
+				.replaceAll("<.+?>", "") // remove tags
+				.replaceAll("\\s+", " ") // remove extra spaces
+				.contains(text);
 	}
 	
 	public void quit() {
