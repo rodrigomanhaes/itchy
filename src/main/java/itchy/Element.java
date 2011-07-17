@@ -29,4 +29,8 @@ public class Element {
 	public String attr(String attributeName) {
 		return this.webElement.getAttribute(attributeName);
 	}
+	
+	public void fill(String text) {
+		this.webElement.sendKeys(text);
+	}
 }

@@ -11,7 +11,8 @@ import org.junit.runners.Suite;
 @Suite.SuiteClasses({
 	BrowserTest.class,
 	FindTest.class,
-	ElementTest.class
+	ElementTest.class,
+	FormTest.class
 })
 public class ItchySuite {
 	private static FakeApp app;

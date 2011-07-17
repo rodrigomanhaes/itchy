@@ -79,6 +79,10 @@ public class Browser {
 				.contains(text);
 	}
 	
+	public void fill(String id, String text) {
+		findById(id).fill(text);
+	}
+	
 	public void quit() {
 		driver.quit();
 	}
