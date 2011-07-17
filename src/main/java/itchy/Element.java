@@ -18,6 +18,10 @@ public class Element {
 		return this.webElement.getAttribute("id");
 	}
 	
+	public String value() {
+		return attr("value");
+	}
+	
 	public String content() {
 		return this.webElement.getText();
 	}

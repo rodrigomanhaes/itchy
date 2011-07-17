@@ -39,7 +39,6 @@ public class FindTest {
 	@Test
 	public void findsElementsByTag() {
 		List<Element> forms = browser.findByTag("form");
-		assertThat(forms.size(), is(2));
 		assertThat(forms.get(0).id(), equalTo("firstForm"));
 		assertThat(forms.get(1).id(), equalTo("secondForm"));
 	}

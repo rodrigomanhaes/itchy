@@ -26,6 +26,11 @@ public class ElementTest {
 	}
 	
 	@Test
+	public void retrievesItsValue() {
+		assertThat(browser.findById("preValued").value(), equalTo("Type something here"));
+	}
+	
+	@Test
 	public void getAtributesByName() {
 		Element link = browser.findById("home");
 		assertThat(link.attr("href"), equalTo("https://github.com/rodrigomanhaes/itchy"));
