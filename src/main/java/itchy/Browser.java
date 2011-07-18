@@ -3,6 +3,7 @@ package itchy;
 import java.util.LinkedList;
 import java.util.List;
 
+import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.remote.RemoteWebDriver;
@@ -48,7 +49,12 @@ public class Browser {
 	}
 	
 	public Element findById(String id) {
-		return new Element(driver.findElementById(id));
+		try {
+			return new Element(driver.findElementById(id));
+		}
+		catch (NoSuchElementException e) {
+			return null;
+		}
 	}
 	
 	public List<Element> findByName(String name) {

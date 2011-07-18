@@ -1,16 +1,14 @@
 package itchy;
 
 import static itchy.ItchySuite.browser;
-
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.*;
 import itchy.testsupport.FakeApp;
 
 import java.util.ArrayList;
-import java.util.Collections;
-import java.util.LinkedList;
 import java.util.List;
 
+import org.hamcrest.core.IsNull;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -48,6 +46,8 @@ public class FindTest {
 		Element element = browser.findById("secondForm");
 		assertThat(element.id(), equalTo("secondForm"));
 		assertThat(element.name(), equalTo("second"));
+		
+		assertThat(browser.findById("doesn't exist"), is(nullValue()));
 	}
 	
 	@Test
