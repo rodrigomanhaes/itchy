@@ -87,14 +87,19 @@ public class Browser {
 	
 	public void fill(String selector, String text) {
 		Element element = findById(selector);
+		List<Element> found = null;
 		if (element != null)
 			element.fill(text);
 		else {
-			List<Element> found = findByName(selector);
+			found = findByName(selector);
 			if (found.size() > 0)
 				found.get(0).fill(text);
 			else {
-				findByXPath("id(//label[text()=\"" + selector + "\"]/@for)").get(0).fill(text);
+				found = findByXPath("id(//label[text()=\"" + selector + "\"]/@for)");
+				if (found.size() > 0)
+					found.get(0).fill(text);
+				else
+					throw new ElementNotFoundException("There is no input element having \"" + selector + "\" as its id, name or label");
 			}
 		}
 	}

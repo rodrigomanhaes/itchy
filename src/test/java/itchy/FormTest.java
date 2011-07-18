@@ -31,4 +31,9 @@ public class FormTest {
 		browser.fill("Second", "Value written by label");
 		assertThat(browser.findById("secondTFId").value(), equalTo("Value written by label"));
 	}
+	
+	@Test(expected=ElementNotFoundException.class)
+	public void raisesExceptionWhenElementIsNotFound() {
+		browser.fill("UNEXISTING", "a dummy value");
+	}
 }
