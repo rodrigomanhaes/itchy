@@ -19,4 +19,16 @@ public class FormTest {
 		browser.fill("secondTFId", "Value written by id");
 		assertThat(browser.findById("secondTFId").value(), equalTo("Value written by id"));
 	}
+	
+	@Test
+	public void fillsFieldByName() {
+		browser.fill("secondTextField", "Value written by name");
+		assertThat(browser.findById("secondTFId").value(), equalTo("Value written by name"));
+	}
+	
+	@Test
+	public void fillsFieldByLabel() {
+		browser.fill("Second", "Value written by label");
+		assertThat(browser.findById("secondTFId").value(), equalTo("Value written by label"));
+	}
 }

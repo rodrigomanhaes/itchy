@@ -85,8 +85,18 @@ public class Browser {
 				.contains(text);
 	}
 	
-	public void fill(String id, String text) {
-		findById(id).fill(text);
+	public void fill(String selector, String text) {
+		Element element = findById(selector);
+		if (element != null)
+			element.fill(text);
+		else {
+			List<Element> found = findByName(selector);
+			if (found.size() > 0)
+				found.get(0).fill(text);
+			else {
+				findByXPath("id(//label[text()=\"" + selector + "\"]/@for)").get(0).fill(text);
+			}
+		}
 	}
 	
 	public void quit() {
