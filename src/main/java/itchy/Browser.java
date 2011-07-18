@@ -86,23 +86,35 @@ public class Browser {
 	}
 	
 	public void fill(String selector, String text) {
+		Element element = findElementBySelector(selector);
+		if (element != null)
+			element.fill(text);
+		else
+			throw new ElementNotFoundException("There is no input element having \"" + 
+												 selector + "\" as its id, name or label");
+	}
+	
+	private Element findElementBySelector(String selector) {
 		Element element = findById(selector);
 		List<Element> found = null;
 		if (element != null)
-			element.fill(text);
+			return element;
 		else {
 			found = findByName(selector);
 			if (found.size() > 0)
-				found.get(0).fill(text);
-			else {
-				found = findByXPath("id(//label[text()=\"" + selector + "\"]/@for)");
-				if (found.size() > 0)
-					found.get(0).fill(text);
-				else
-					throw new ElementNotFoundException("There is no input element having \"" + selector + "\" as its id, name or label");
-			}
+				return found.get(0);
+			else 
+				return findByLabelText(selector);
 		}
 	}
+	
+	private Element findByLabelText(String labelText) {
+		List<Element> elements = findByXPath("id(//label[text()=\"" + labelText + "\"]/@for)");
+		if (elements.isEmpty())
+			return null;
+		return elements.get(0);
+	}
+	
 	
 	public void quit() {
 		driver.quit();
