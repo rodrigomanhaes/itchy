@@ -115,6 +115,13 @@ public class Browser {
 		return elements.get(0);
 	}
 	
+	public void choose(String name, String value) {
+		List<Element> radioButtons = findByName(name);
+		for (Element element: radioButtons) {
+			if (value.equals(element.value()))
+				element.choose();
+		}
+	}
 	
 	public void quit() {
 		driver.quit();

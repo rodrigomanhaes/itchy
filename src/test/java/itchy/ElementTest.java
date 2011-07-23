@@ -1,8 +1,9 @@
 package itchy;
 
 import static itchy.ItchySuite.browser;
+
 import static org.hamcrest.MatcherAssert.assertThat;
-import static org.hamcrest.Matchers.equalTo;
+import static org.hamcrest.Matchers.*;
 import itchy.testsupport.FakeApp;
 
 import org.junit.Before;
@@ -42,5 +43,12 @@ public class ElementTest {
 	public void retrievesItsContent() {
 		Element link = browser.findById("home");
 		assertThat(link.content(), equalTo("Itchy Home"));
+	}
+	
+	@Test
+	public void choosesRadioButton() {
+		assertThat(browser.findById("fb").isChosen(), is(false));
+		browser.findById("fb").choose();
+		assertThat(browser.findById("fb").isChosen(), is(true));
 	}
 }

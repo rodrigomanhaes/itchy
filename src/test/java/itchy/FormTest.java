@@ -1,8 +1,11 @@
 package itchy;
 
 import static itchy.ItchySuite.browser;
+
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.equalTo;
+import static org.hamcrest.Matchers.is;
+
 import itchy.testsupport.FakeApp;
 
 import org.junit.Before;
@@ -35,5 +38,12 @@ public class FormTest {
 	@Test(expected=ElementNotFoundException.class)
 	public void raisesExceptionWhenElementIsNotFound() {
 		browser.fill("UNEXISTING", "a dummy value");
+	}
+	
+	@Test
+	public void choosesRadioButtonByNameAndValue() {
+		assertThat(browser.findById("hb").isChosen(), is(false));
+		browser.choose("sport", "handball");
+		assertThat(browser.findById("hb").isChosen(), is(true));
 	}
 }

@@ -33,4 +33,16 @@ public class Element {
 	public void fill(String text) {
 		this.webElement.sendKeys(text);
 	}
+	
+	public boolean isChecked() {
+		return attr("checked") != null;
+	}
+	
+	public boolean isChosen() {
+		return isChecked();
+	}
+	
+	public void choose() {
+		this.webElement.click();
+	}
 }
