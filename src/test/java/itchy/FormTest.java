@@ -46,4 +46,11 @@ public class FormTest {
 		browser.choose("sport", "handball");
 		assertThat(browser.findById("hb").isChosen(), is(true));
 	}
+	
+	@Test
+	public void choosesRadioButtonByLabel() {
+		assertThat(browser.findById("vb").isChosen(), is(false));
+		browser.choose("Volleyball");
+		assertThat(browser.findById("vb").isChosen(), is(true));
+	}
 }

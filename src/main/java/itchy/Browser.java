@@ -123,6 +123,10 @@ public class Browser {
 		}
 	}
 	
+	public void choose(String label) {
+		findByLabelText(label).choose();
+	}
+	
 	public void quit() {
 		driver.quit();
 	}
