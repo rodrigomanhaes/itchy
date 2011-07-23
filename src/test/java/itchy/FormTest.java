@@ -53,4 +53,14 @@ public class FormTest {
 		browser.choose("Volleyball");
 		assertThat(browser.findById("vb").isChosen(), is(true));
 	}
+	
+	@Test(expected=ElementNotFoundException.class)
+	public void raisesExceptionWhenRadioIsNotFoundByNameAndValueForChoosing() {
+		browser.choose("sport", "rugby");
+	}
+	
+	@Test(expected=ElementNotFoundException.class)
+	public void raisesExceptionWhenRadioIsNotFoundByLabelForChoosing() {
+		browser.choose("Baseball");
+	}
 }

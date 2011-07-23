@@ -117,14 +117,26 @@ public class Browser {
 	
 	public void choose(String name, String value) {
 		List<Element> radioButtons = findByName(name);
+		Element radio = null;
 		for (Element element: radioButtons) {
-			if (value.equals(element.value()))
-				element.choose();
+			if (value.equals(element.value())) {
+				radio = element;
+				break;
+			}
 		}
+		if (radio != null)
+			radio.choose();
+		else
+			throw new ElementNotFoundException("There is no radio button having \"" + name + 
+				"\" as name and \"" + value + "\" as value.");
 	}
 	
 	public void choose(String label) {
-		findByLabelText(label).choose();
+		Element radio = findByLabelText(label);
+		if (radio != null)
+			radio.choose();
+		else
+			throw new ElementNotFoundException("There is no radio button having \"" + label + "\" as label.");
 	}
 	
 	public void quit() {
