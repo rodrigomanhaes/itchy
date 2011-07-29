@@ -67,13 +67,13 @@ public class FormTest {
 	}
 	
 	@Test
-	public void findOptionByValue() {
+	public void findsOptionByValue() {
 		List<Element> elements = browser.findOptionByValue("RJ");
 		assertThat(elements.get(0).content(), equalTo("Rio de Janeiro"));
 	}
 	
 	@Test
-	public void findOptionByText() {
+	public void findsOptionByText() {
 		List<Element> elements = browser.findOptionByText("Rio de Janeiro");
 		assertThat(elements.get(0).value(), equalTo("RJ"));
 	}
