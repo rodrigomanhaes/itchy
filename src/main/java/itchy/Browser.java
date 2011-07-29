@@ -151,4 +151,13 @@ public class Browser {
 		driver.quit();
 	}
 
+	public void select(String selector, String optionText) {
+		Element select = findElementBySelector(selector);
+		Element option = null;
+		if (select.id() != null && !select.id().equals(""))
+			option = findByXPath("//select[@id='" + select.id() + "']/option[text()='" + optionText + "']").get(0);
+		else
+			option = findByXPath("//select[@name='" + select.name() + "']/option[text()='" + optionText + "']").get(0);
+		option.select();
+	}
 }

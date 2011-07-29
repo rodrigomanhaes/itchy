@@ -45,4 +45,12 @@ public class Element {
 	public void choose() {
 		this.webElement.click();
 	}
+
+	public void select() {
+		choose();		
+	}
+	
+	public boolean isSelected() {
+		return isChosen();
+	}
 }

@@ -77,4 +77,11 @@ public class FormTest {
 		List<Element> elements = browser.findOptionByText("Rio de Janeiro");
 		assertThat(elements.get(0).value(), equalTo("RJ"));
 	}
+	
+	@Test
+	public void selectsAnOptionByLabelAndText() {
+		browser.select("States", "Rio de Janeiro");
+		Element option = browser.findOptionByValue("RJ").get(0);
+		assertThat(option.isSelected(), is(true));
+	}
 }
