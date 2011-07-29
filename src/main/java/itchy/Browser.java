@@ -139,6 +139,10 @@ public class Browser {
 			throw new ElementNotFoundException("There is no radio button having \"" + label + "\" as label.");
 	}
 	
+	public List<Element> findOptionByValue(String value) { 
+		return findByXPath("//option[@value='" + value + "']");
+	}
+	
 	public void quit() {
 		driver.quit();
 	}

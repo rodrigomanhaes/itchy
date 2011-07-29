@@ -2,6 +2,8 @@ package itchy;
 
 import static itchy.ItchySuite.browser;
 
+import java.util.List;
+
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.equalTo;
 import static org.hamcrest.Matchers.is;
@@ -62,5 +64,11 @@ public class FormTest {
 	@Test(expected=ElementNotFoundException.class)
 	public void raisesExceptionWhenRadioIsNotFoundByLabelForChoosing() {
 		browser.choose("Baseball");
+	}
+	
+	@Test
+	public void findOptionByValue() {
+		List<Element> elements = browser.findOptionByValue("RJ");
+		assertThat(elements.get(0).content(), equalTo("Rio de Janeiro"));
 	}
 }
