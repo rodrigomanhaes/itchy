@@ -143,7 +143,12 @@ public class Browser {
 		return findByXPath("//option[@value='" + value + "']");
 	}
 	
+	public List<Element> findOptionByText(String text) {
+		return findByXPath("//option[text()='" + text + "']");
+	}
+	
 	public void quit() {
 		driver.quit();
 	}
+
 }
